@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smart School Lib - Manage Authors</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --color-red: #DB4437;
+            --color-blue: #4285F4;
+            --color-green: #0F9D58;
+            --color-yellow: #F4B400;
+            --background-color: #f8fafc;
+            --text-primary: #1a202c;
+            --text-secondary: #4b5563;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+        }
+        .active-link {
+             background-color: #e2e8f0;
+             font-weight: 600;
+             color: var(--text-primary);
+        }
+    </style>
+</head>
+<body class="bg-background-color">
+<div class="flex h-screen bg-gray-100">
+<aside class="w-64 bg-white shadow-lg flex flex-col">
+<div class="flex items-center justify-center p-4 space-x-2 border-b">
+<span class="material-symbols-outlined text-3xl text-[var(--color-blue)]">auto_stories</span>
+<span class="text-xl font-extrabold text-[var(--text-primary)]">Smart School Library</span>
+</div>
+<nav class="flex-1 px-2 py-4 space-y-2">
+<a class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md" href="#">
+<span class="material-symbols-outlined mr-3">search</span>
+<span>Search Books</span>
+</a>
+<a class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md" href="#">
+<span class="material-symbols-outlined mr-3">menu_book</span>
+<span>Manage Books</span>
+</a>
+<a class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md" href="#">
+<span class="material-symbols-outlined mr-3">person_search</span>
+<span>Search Authors</span>
+</a>
+<a class="flex items-center px-4 py-2 text-gray-700 rounded-md active-link" href="#">
+<span class="material-symbols-outlined mr-3">group</span>
+<span>Manage Authors</span>
+</a>
+<a class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md" href="#">
+<span class="material-symbols-outlined mr-3">book</span>
+<span>My Loans</span>
+</a>
+<a class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md" href="#">
+<span class="material-symbols-outlined mr-3">checklist</span>
+<span>Manage Loans</span>
+</a>
+<a class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md" href="#">
+<span class="material-symbols-outlined mr-3">record_voice_over</span>
+<span>Teachers Reading Suggestions</span>
+</a>
+<a class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md" href="#">
+<span class="material-symbols-outlined mr-3">lightbulb</span>
+<span>Manage Reading Suggestions</span>
+</a>
+</nav>
+<div class="p-4 border-t">
+<a class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-md" href="#">
+<span class="material-symbols-outlined mr-3">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<header class="flex justify-between items-center mb-10">
+<div>
+<h1 class="text-3xl font-extrabold text-gray-800">Manage Authors</h1>
+<p class="text-gray-500">Add, update, or remove authors from the library catalog.</p>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-4xl text-gray-400">account_circle</span>
+<div>
+<p class="font-semibold text-sm">Ana Oliveira</p>
+<p class="text-xs text-gray-500">Librarian</p>
+</div>
+</div>
+</div>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center hover:shadow-xl transition-shadow duration-300">
+<div class="bg-[var(--color-blue)] p-4 rounded-full mb-4">
+<span class="material-symbols-outlined text-4xl text-white">person_add</span>
+</div>
+<h2 class="text-xl font-bold text-gray-800 mb-2">Register Authors</h2>
+<p class="text-gray-600 mb-6">Add new authors to the library's catalog.</p>
+<button class="bg-[var(--color-blue)] text-white font-semibold py-2 px-6 rounded-full hover:bg-blue-600 transition-colors duration-300">
+                    Register
+                </button>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center hover:shadow-xl transition-shadow duration-300">
+<div class="bg-[var(--color-green)] p-4 rounded-full mb-4">
+<span class="material-symbols-outlined text-4xl text-white">manage_accounts</span>
+</div>
+<h2 class="text-xl font-bold text-gray-800 mb-2">Update Authors</h2>
+<p class="text-gray-600 mb-6">Modify information for existing authors.</p>
+<button class="bg-[var(--color-green)] text-white font-semibold py-2 px-6 rounded-full hover:bg-green-700 transition-colors duration-300">
+                    Update
+                </button>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center hover:shadow-xl transition-shadow duration-300">
+<div class="bg-[var(--color-red)] p-4 rounded-full mb-4">
+<span class="material-symbols-outlined text-4xl text-white">person_remove</span>
+</div>
+<h2 class="text-xl font-bold text-gray-800 mb-2">Remove Authors</h2>
+<p class="text-gray-600 mb-6">Remove authors from the library's catalog.</p>
+<button class="bg-[var(--color-red)] text-white font-semibold py-2 px-6 rounded-full hover:bg-red-700 transition-colors duration-300">
+                    Remove
+                </button>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

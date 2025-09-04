@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smart School Library - Register</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+          --color-red: #DB4437;
+          --color-blue: #4285F4;
+          --color-green: #0F9D58;
+          --color-yellow: #F4B400;
+          --background-color: #ffffff;
+          --text-primary: #1a202c;
+          --text-secondary: #4b5563;
+        }
+        body {
+          font-family: 'Inter', sans-serif;
+          background-color: var(--background-color);
+          color: var(--text-primary);
+        }
+        .user-type-radio:checked + label {
+            background-color: var(--color-blue);
+            color: white;
+            border-color: var(--color-blue);
+        }
+    </style>
+</head>
+<body class="bg-background-color">
+<div class="relative min-h-screen">
+<div class="absolute inset-0 h-full w-full">
+<img alt="Library bookshelf with a closer view of books" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEZ_p5_PUfM4-w-xj2zTxd31Ak4SXl_Vn31jhTGEYjQrWUubke3XPbL2hZU9ZaUaeLGtySnAOaPFibeSVLY5Y1uzU4IKoOfg9SzUqnIhKDMQ97vzqXBe47cK8g7aTz-K2yKoKDus37OXkLR75sPdpZLKr_CLHwrrFIExXT-xdqn3NbVvD68Tsjipl-0kEZrJhk1vFT0SqubB3hb6BjQf1cAvuJPcG7XC46Qy7bNyp2NH9eupYQbxTMzsgCjxeIuGI05lVe2RtRWNk"/>
+<div class="absolute inset-0 bg-black/30"></div>
+</div>
+<div class="relative flex min-h-screen flex-col items-center justify-center px-6 py-12 lg:px-8">
+<div class="sm:mx-auto sm:w-full sm:max-w-md">
+<div class="flex justify-center items-center mb-4 space-x-2">
+<span class="material-symbols-outlined text-6xl" style="color: var(--color-blue)">auto_stories</span>
+<span class="material-symbols-outlined text-6xl" style="color: var(--color-yellow)">auto_stories</span>
+<span class="material-symbols-outlined text-6xl" style="color: var(--color-red)">auto_stories</span>
+<span class="material-symbols-outlined text-6xl" style="color: var(--color-green)">auto_stories</span>
+</div>
+<h1 class="text-center text-4xl font-extrabold text-white">
+                Smart School Library
+            </h1>
+<p class="mt-2 text-center text-lg text-gray-200">
+                Create your account.
+            </p>
+</div>
+<div class="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
+<div class="bg-white/20 backdrop-blur-md py-8 px-4 shadow-xl sm:rounded-lg sm:px-10 border border-gray-200/20">
+<form action="#" class="space-y-6" method="POST">
+<div>
+<label class="block text-sm font-medium text-white mb-2 text-center">Select your user type</label>
+<div class="flex justify-center space-x-2">
+<input checked="" class="hidden user-type-radio" id="librarian" name="user_type" type="radio" value="librarian"/>
+<label class="cursor-pointer text-center py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-white hover:bg-blue-500 hover:text-white transition duration-150 ease-in-out" for="librarian">Librarian</label>
+<input class="hidden user-type-radio" id="teacher" name="user_type" type="radio" value="teacher"/>
+<label class="cursor-pointer text-center py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-white hover:bg-blue-500 hover:text-white transition duration-150 ease-in-out" for="teacher">Teacher</label>
+<input class="hidden user-type-radio" id="student" name="user_type" type="radio" value="student"/>
+<label class="cursor-pointer text-center py-2 px-4 border border-gray-300 rounded-md text-sm font-medium text-white hover:bg-blue-500 hover:text-white transition duration-150 ease-in-out" for="student">Student</label>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-white" for="name">Name</label>
+<div class="mt-1">
+<input class="block w-full appearance-none rounded-md border border-gray-300 bg-white/50 px-3 py-2 text-gray-900 placeholder-gray-500 shadow-sm focus:border-[var(--color-blue)] focus:outline-none focus:ring-[var(--color-blue)] sm:text-sm" id="name" name="name" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-white" for="email">Email</label>
+<div class="mt-1">
+<input autocomplete="email" class="block w-full appearance-none rounded-md border border-gray-300 bg-white/50 px-3 py-2 text-gray-900 placeholder-gray-500 shadow-sm focus:border-[var(--color-blue)] focus:outline-none focus:ring-[var(--color-blue)] sm:text-sm" id="email" name="email" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-white" for="registration">Registration</label>
+<div class="mt-1">
+<input class="block w-full appearance-none rounded-md border border-gray-300 bg-white/50 px-3 py-2 text-gray-900 placeholder-gray-500 shadow-sm focus:border-[var(--color-blue)] focus:outline-none focus:ring-[var(--color-blue)] sm:text-sm" id="registration" name="registration" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-white" for="password">Password</label>
+<div class="mt-1">
+<input autocomplete="current-password" class="block w-full appearance-none rounded-md border border-gray-300 bg-white/50 px-3 py-2 text-gray-900 placeholder-gray-500 shadow-sm focus:border-[var(--color-blue)] focus:outline-none focus:ring-[var(--color-blue)] sm:text-sm" id="password" name="password" required="" type="password"/>
+</div>
+</div>
+<div>
+<button class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-[var(--color-green)] hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-green)] transition ease-in-out duration-150" type="submit">
+                            Register
+                        </button>
+</div>
+</form>
+<div class="mt-6">
+<p class="text-center text-sm text-gray-200">
+                        Already have an account?
+                        <a class="font-medium text-white hover:text-gray-100 underline" href="#">
+                            Login here
+                        </a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>
