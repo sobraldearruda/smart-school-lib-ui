@@ -1,17 +1,20 @@
 "use client";
+
 import { useState } from "react";
 import { apiFetch } from "@/lib/api";
+import Link from 'next/link';
+import Image from "next/image";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [registration, setRegistration] = useState("");
+  const [password, setPassword] = useState("");
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     try {
       const data = await apiFetch("/login", {
         method: "POST",
-        body: JSON.stringify({ email, senha }),
+        body: JSON.stringify({ registration, password }),
       });
       console.log("Login bem-sucedido", data);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -21,24 +24,108 @@ export default function LoginPage() {
   }
 
   return (
-    <form onSubmit={handleLogin} className="flex flex-col gap-4 max-w-sm mx-auto mt-10">
-      <input
-        type="email"
-        placeholder="E-mail"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="p-2 border rounded"
-      />
-      <input
-        type="password"
-        placeholder="Senha"
-        value={senha}
-        onChange={(e) => setSenha(e.target.value)}
-        className="p-2 border rounded"
-      />
-      <button type="submit" className="bg-blue-600 text-white p-2 rounded">
-        Entrar
-      </button>
-    </form>
+    <div className="relative min-h-screen">
+      {/* Background Image */}
+      <div className="absolute inset-0 h-full w-full">
+        <Image
+          alt="Library bookshelf with a closer view of books"
+          className="h-full w-full object-cover"
+          src="/books.jpg"
+          fill
+          priority
+        />
+        <div className="absolute inset-0 bg-black/30"></div>
+      </div>
+      
+      {/* Content */}
+      <div className="relative flex min-h-screen flex-col items-center justify-center px-6 py-12 lg:px-8">
+        {/* Header */}
+        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+          {/* Logo Icons */}
+          <div className="flex justify-center items-center mb-4 space-x-2">
+            <span className="material-symbols-outlined text-6xl" style={{ color: "var(--color-blue)" }}>
+              auto_stories
+            </span>
+            <span className="material-symbols-outlined text-6xl" style={{ color: "var(--color-yellow)" }}>
+              auto_stories
+            </span>
+            <span className="material-symbols-outlined text-6xl" style={{ color: "var(--color-red)" }}>
+              auto_stories
+            </span>
+            <span className="material-symbols-outlined text-6xl" style={{ color: "var(--color-green)" }}>
+              auto_stories
+            </span>
+          </div>
+          
+          {/* Title */}
+          <h1 className="text-center text-4xl font-extrabold text-white">
+            Smart School Library
+          </h1>
+          <p className="mt-2 text-center text-lg text-gray-200">
+            Welcome back! Please login to your account.
+          </p>
+        </div>
+        
+        {/* Login Form */}
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="bg-white/20 backdrop-blur-md py-8 px-4 shadow-xl sm:rounded-lg sm:px-10 border border-gray-200/20">
+            <form onSubmit={handleLogin} className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-white" htmlFor="registration">
+                  Registration
+                </label>
+                <div className="mt-1">
+                  <input
+                    className="block w-full appearance-none rounded-md border border-gray-300 bg-white/50 px-3 py-2 text-gray-900 placeholder-gray-500 shadow-sm focus:border-smart-blue focus:outline-none focus:ring-smart-blue sm:text-sm"
+                    id="registration"
+                    name="registration"
+                    required
+                    type="text"
+                    value={registration}
+                    onChange={(e) => setRegistration(e.target.value)}
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-white" htmlFor="password">
+                  Password
+                </label>
+                <div className="mt-1">
+                  <input
+                    autoComplete="current-password"
+                    className="block w-full appearance-none rounded-md border border-gray-300 bg-white/50 px-3 py-2 text-gray-900 placeholder-gray-500 shadow-sm focus:border-smart-blue focus:outline-none focus:ring-smart-blue sm:text-sm"
+                    id="password"
+                    name="password"
+                    required
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+              </div>              
+              
+              <div>
+                <button
+                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-smart-blue hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-smart-blue transition ease-in-out duration-150"
+                  type="submit"
+                >
+                  Login
+                </button>
+              </div>
+            </form>
+            
+            <div className="mt-6">
+              <p className="text-center text-sm text-gray-200">
+                Don&#39;t have an account?{' '}
+                <Link className="font-medium text-white hover:text-gray-100 underline" href="/register">
+                  Register here
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

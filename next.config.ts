@@ -1,14 +1,13 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  async rewrites() {
-    return [
+  images: {
+    remotePatterns: [
       {
-        source: "/api/:path*",
-        destination: `${process.env.NEXT_PUBLIC_API_BASE_URL}/:path*`,
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
       },
-    ];
+    ],
   },
 };
 
