@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from "next/image";
 
 export default function RegisterPage() {
-  const [userType, setUserType] = useState("librarian");
+  const [userType, setUserType] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [registration, setRegistration] = useState("");
@@ -15,11 +15,27 @@ export default function RegisterPage() {
   async function handleRegister(e: React.FormEvent) {
     e.preventDefault();
     try {
-      const data = await apiFetch("/register", {
+      const endpoint = 
+      userType === "librarian"
+        ? "/librarians"
+        : userType === "teacher"
+        ? "/teachers"
+        : "/students";
+        
+      const data = await apiFetch(endpoint, {
         method: "POST",
-        body: JSON.stringify({ userType, name, email, registration, password }),
+        body: JSON.stringify({ name, email, registration, password }),
       });
+
       console.log("Registro bem-sucedido", data);
+      
+      if (userType === "librarian") {
+        window.location.href = "/librarian/dashboard";
+      } else if (userType === "teacher") {
+        window.location.href = "/librarian/dashboard";
+      } else {
+        window.location.href = "/librarian/dashboard";
+      }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       alert(err.message);

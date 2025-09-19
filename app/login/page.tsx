@@ -6,17 +6,37 @@ import Link from 'next/link';
 import Image from "next/image";
 
 export default function LoginPage() {
+  const [userType, setUserType] = useState("");
   const [registration, setRegistration] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     try {
-      const data = await apiFetch("/login", {
+      const endpoint =
+      userType === "librarian"
+        ? "/librarians/login"
+        : userType === "teacher"
+        ? "/teachers/login"
+        : "/students/login";
+
+      const data = await apiFetch(endpoint, {
         method: "POST",
         body: JSON.stringify({ registration, password }),
       });
+
       console.log("Login bem-sucedido", data);
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("userType", data.userType);
+      
+      if (userType === "librarian") {
+        window.location.href = "/librarian/dashboard";
+      } else if (userType === "teacher") {
+        window.location.href = "/teacher/dashboard";
+      } else {
+        window.location.href = "/student/dashboard";
+      }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       alert(err.message);
@@ -70,6 +90,74 @@ export default function LoginPage() {
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white/20 backdrop-blur-md py-8 px-4 shadow-xl sm:rounded-lg sm:px-10 border border-gray-200/20">
             <form onSubmit={handleLogin} className="space-y-6">
+              {/* User Type Selection */}
+              <div>
+                <label className="block text-sm font-medium text-white mb-2 text-center">
+                  Select your user type
+                </label>
+                <div className="flex justify-center space-x-2">
+                  <input
+                    checked={userType === "librarian"}
+                    className="hidden user-type-radio"
+                    id="librarian"
+                    name="user_type"
+                    type="radio"
+                    value="librarian"
+                    onChange={(e) => setUserType(e.target.value)}
+                  />
+                  <label
+                    className={`cursor-pointer text-center py-2 px-4 border border-gray-300 rounded-md text-sm font-medium transition duration-150 ease-in-out ${
+                      userType === "librarian"
+                        ? "bg-smart-blue text-white border-smart-blue"
+                        : "text-white hover:bg-blue-500 hover:text-white"
+                    }`}
+                    htmlFor="librarian"
+                  >
+                    Librarian
+                  </label>
+                  
+                  <input
+                    checked={userType === "teacher"}
+                    className="hidden user-type-radio"
+                    id="teacher"
+                    name="user_type"
+                    type="radio"
+                    value="teacher"
+                    onChange={(e) => setUserType(e.target.value)}
+                  />
+                  <label
+                    className={`cursor-pointer text-center py-2 px-4 border border-gray-300 rounded-md text-sm font-medium transition duration-150 ease-in-out ${
+                      userType === "teacher"
+                        ? "bg-smart-blue text-white border-smart-blue"
+                        : "text-white hover:bg-blue-500 hover:text-white"
+                    }`}
+                    htmlFor="teacher"
+                  >
+                    Teacher
+                  </label>
+                  
+                  <input
+                    checked={userType === "student"}
+                    className="hidden user-type-radio"
+                    id="student"
+                    name="user_type"
+                    type="radio"
+                    value="student"
+                    onChange={(e) => setUserType(e.target.value)}
+                  />
+                  <label
+                    className={`cursor-pointer text-center py-2 px-4 border border-gray-300 rounded-md text-sm font-medium transition duration-150 ease-in-out ${
+                      userType === "student"
+                        ? "bg-smart-blue text-white border-smart-blue"
+                        : "text-white hover:bg-blue-500 hover:text-white"
+                    }`}
+                    htmlFor="student"
+                  >
+                    Student
+                  </label>
+                </div>
+              </div>
+
               <div>
                 <label className="block text-sm font-medium text-white" htmlFor="registration">
                   Registration
