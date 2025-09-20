@@ -15,15 +15,3 @@ smart-school-lib is a school library management platform for librarians, teacher
 ```
 npm run dev
 ```
-
-## Run the tests:
-
-```
-npm test
-```
-
-## Run the tests coverage:
-
-```
-npm test -- --coverage
-```
