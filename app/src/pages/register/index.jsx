@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const navigate = useNavigate();
   const [userType, setUserType] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -15,14 +17,7 @@ function Register() {
         throw new Error("Please, select your user type.");
       }
 
-      const endpoint =
-        userType === "librarian"
-          ? "librarians"
-          : userType === "teacher"
-          ? "teachers"
-          : "students";
-
-      const response = await fetch(`http://localhost:3000/${endpoint}`, {
+      const response = await fetch(`http://localhost:3000/api/${userType}s`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, registration, password }),
@@ -36,11 +31,11 @@ function Register() {
       console.log("Welcome to Smart School Library.", data);
 
       if (userType === "librarian") {
-        window.location.href = "/librarian/dashboard";
+        navigate("/librarian/dashboard");
       } else if (userType === "teacher") {
-        window.location.href = "/teacher/dashboard";
+        navigate("/teacher/dashboard");
       } else {
-        window.location.href = "/student/dashboard";
+        navigate("/student/dashboard");
       }
     } catch (err) {
       alert(err.message);

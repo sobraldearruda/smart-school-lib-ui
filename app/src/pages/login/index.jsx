@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
   const [userType, setUserType] = useState("");
   const [registration, setRegistration] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +15,7 @@ function Login() {
         throw new Error("Please, select your user type.");
       }
 
-      const response = await fetch(`http://localhost:3000/${userType}/login`, {
+      const response = await fetch(`http://localhost:3000/api/${userType}s/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ registration, password }),
@@ -27,11 +29,11 @@ function Login() {
       console.log("Welcome to Smart School Library.", data);
       
       if (userType === "librarian") {
-        window.location.href = "/librarian/dashboard";
+        navigate("/librarian/dashboard");
       } else if (userType === "teacher") {
-        window.location.href = "/teacher/dashboard";
+        navigate("/teacher/dashboard");
       } else {
-        window.location.href = "/student/dashboard";
+        navigate("/student/dashboard");
       }
     } catch (err) {
       alert(err.message);
