@@ -20,15 +20,26 @@ function Register() {
       const response = await fetch(`http://localhost:3000/api/${userType}s`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, registration, password }),
+        body: JSON.stringify({
+          userName: name,
+          userEmail: email,
+          userRegistration: registration,
+          userPassword: password,
+        }),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to register. Please try again.");
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(
+          errorData.message || "Failed to login. Please try again."
+        );
       }
 
       const data = await response.json();
       console.log("Welcome to Smart School Library.", data);
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       if (userType === "librarian") {
         navigate("/librarian/dashboard");
@@ -67,9 +78,7 @@ function Register() {
 
           {/* User Type */}
           <div>
-            <label className="user-type-label">
-              Select your user type
-            </label>
+            <label className="user-type-label">Select your user type</label>
             <div className="user-type-options">
               <input
                 type="radio"

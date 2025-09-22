@@ -34,7 +34,10 @@ function HomePage() {
           <button className="btn-login" onClick={() => navigate("/login")}>
             Login
           </button>
-          <button className="btn-register" onClick={() => navigate("/register")}>
+          <button
+            className="btn-register"
+            onClick={() => navigate("/register")}
+          >
             Register
           </button>
         </div>
