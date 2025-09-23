@@ -1,4 +1,5 @@
 import "./style.css";
+import { Link } from "react-router-dom";
 
 export default function StudentDashboard() {
   return (
@@ -11,10 +12,30 @@ export default function StudentDashboard() {
         </div>
 
         <nav className="sidebar-nav">
-          <a href="#" className="sidebar-link active">
+          <Link to="/student/dashboard" className="sidebar-link active">
             <span className="material-symbols-outlined">dashboard</span>
             <span>Dashboard</span>
-          </a>
+          </Link>
+
+          <Link to="/student/search-books" className="sidebar-link">
+            <span className="material-symbols-outlined">search</span>
+            <span>Search Books</span>
+          </Link>
+
+          <Link to="/student/search-authors" className="sidebar-link">
+            <span className="material-symbols-outlined">person_search</span>
+            <span>Search Authors</span>
+          </Link>
+
+          <Link to="/student/my-loans" className="sidebar-link">
+            <span className="material-symbols-outlined">book</span>
+            <span>My Loans</span>
+          </Link>
+
+          <Link to="/student/teachers-reading-suggestions" className="sidebar-link">
+            <span className="material-symbols-outlined">record_voice_over</span>
+            <span>Teachers Reading Suggestions</span>
+          </Link>
         </nav>
 
         <div className="sidebar-logout">
