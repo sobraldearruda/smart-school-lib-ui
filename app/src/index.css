@@ -16,9 +16,3 @@ body {
   background-color: var(--background-color);
   color: var(--text-primary);
 }
-
-.user-type-radio:checked + label {
-  background-color: var(--color-blue);
-  color: white;
-  border-color: var(--color-blue);
-}

@@ -9,6 +9,9 @@ import Login from "./pages/login";
 import StudentDashboard from "./pages/student/dashboard";
 import TeacherDashboard from "./pages/teacher/dashboard";
 import LibrarianDashboard from "./pages/librarian/dashboard";
+import LibrarianSearchBooks from "./pages/librarian/search-books";
+import StudentSearchBooks from "./pages/student/search-books";
+import TeacherSearchBooks from "./pages/teacher/search-books";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -19,20 +22,20 @@ createRoot(document.getElementById("root")).render(
         <Route path="/login" element={<Login />} />
 
         <Route path="/student/dashboard" element={<StudentDashboard />} />
-        <Route path="/student/search-books" element={<StudentDashboard />} />
+        <Route path="/student/search-books" element={<StudentSearchBooks />} />
         <Route path="/student/search-authors" element={<StudentDashboard />} />
         <Route path="/student/my-loans" element={<StudentDashboard />} />
         <Route path="/student/teachers-reading-suggestions" element={<StudentDashboard />} />
 
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
-        <Route path="/teacher/search-books" element={<TeacherDashboard />} />
+        <Route path="/teacher/search-books" element={<TeacherSearchBooks />} />
         <Route path="/teacher/search-authors" element={<TeacherDashboard />} />
         <Route path="/teacher/my-loans" element={<TeacherDashboard />} />
         <Route path="/teacher/teachers-reading-suggestions" element={<TeacherDashboard />} />
         <Route path="/teacher/my-reading-suggestions" element={<TeacherDashboard />} />
 
         <Route path="/librarian/dashboard" element={<LibrarianDashboard />} />
-        <Route path="/librarian/search-books" element={<LibrarianDashboard />} />
+        <Route path="/librarian/search-books" element={<LibrarianSearchBooks />} />
         <Route path="/librarian/manage-books" element={<LibrarianDashboard />} />
         <Route path="/librarian/search-authors" element={<LibrarianDashboard />} />
         <Route path="/librarian/manage-authors" element={<LibrarianDashboard />} />
