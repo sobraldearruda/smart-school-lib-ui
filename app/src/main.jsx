@@ -18,6 +18,9 @@ import TeacherSearchAuthors from "./pages/teacher/search-authors";
 import LibrarianTeachersReadingSuggestions from "./pages/librarian/teachers-reading-suggestions";
 import StudentTeachersReadingSuggestions from "./pages/student/teachers-reading-suggestions";
 import TeacherUserTeachersReadingSuggestions from "./pages/teacher/teachers-reading-suggestions";
+import StudentMyLoans from "./pages/student/my-loans";
+import TeacherMyLoans from "./pages/teacher/my-loans";
+import LibrarianMyLoans from "./pages/librarian/my-loans";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -30,13 +33,13 @@ createRoot(document.getElementById("root")).render(
         <Route path="/student/dashboard" element={<StudentDashboard />} />
         <Route path="/student/search-books" element={<StudentSearchBooks />} />
         <Route path="/student/search-authors" element={<StudentSearchAuthors />} />
-        <Route path="/student/my-loans" element={<StudentDashboard />} />
+        <Route path="/student/my-loans" element={<StudentMyLoans />} />
         <Route path="/student/teachers-reading-suggestions" element={<StudentTeachersReadingSuggestions />} />
 
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
         <Route path="/teacher/search-books" element={<TeacherSearchBooks />} />
         <Route path="/teacher/search-authors" element={<TeacherSearchAuthors />} />
-        <Route path="/teacher/my-loans" element={<TeacherDashboard />} />
+        <Route path="/teacher/my-loans" element={<TeacherMyLoans />} />
         <Route path="/teacher/teachers-reading-suggestions" element={<TeacherUserTeachersReadingSuggestions />} />
         <Route path="/teacher/my-reading-suggestions" element={<TeacherDashboard />} />
 
@@ -45,7 +48,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/librarian/manage-books" element={<LibrarianDashboard />} />
         <Route path="/librarian/search-authors" element={<LibrarianSearchAuthors />} />
         <Route path="/librarian/manage-authors" element={<LibrarianDashboard />} />
-        <Route path="/librarian/my-loans" element={<LibrarianDashboard />} />
+        <Route path="/librarian/my-loans" element={<LibrarianMyLoans />} />
         <Route path="/librarian/manage-loans" element={<LibrarianDashboard />} />
         <Route path="/librarian/teachers-reading-suggestions" element={<LibrarianTeachersReadingSuggestions />} />
         <Route path="/librarian/manage-reading-suggestions" element={<LibrarianDashboard />} />
