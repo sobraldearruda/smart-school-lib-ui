@@ -22,6 +22,10 @@ import StudentMyLoans from "./pages/student/my-loans";
 import TeacherMyLoans from "./pages/teacher/my-loans";
 import LibrarianMyLoans from "./pages/librarian/my-loans";
 import TeacherMyReadingSuggestions from "./pages/teacher/my-reading-suggestions";
+import LibrarianManageBooks from "./pages/librarian/manage-books";
+import LibrarianManageAuthors from "./pages/librarian/manage-authors";
+import LibrarianManageLoans from "./pages/librarian/manage-loans";
+import LibrarianManageSuggestions from "./pages/librarian/manage-reading-suggestions";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -46,13 +50,13 @@ createRoot(document.getElementById("root")).render(
 
         <Route path="/librarian/dashboard" element={<LibrarianDashboard />} />
         <Route path="/librarian/search-books" element={<LibrarianSearchBooks />} />
-        <Route path="/librarian/manage-books" element={<LibrarianDashboard />} />
+        <Route path="/librarian/manage-books" element={<LibrarianManageBooks />} />
         <Route path="/librarian/search-authors" element={<LibrarianSearchAuthors />} />
-        <Route path="/librarian/manage-authors" element={<LibrarianDashboard />} />
+        <Route path="/librarian/manage-authors" element={<LibrarianManageAuthors />} />
         <Route path="/librarian/my-loans" element={<LibrarianMyLoans />} />
-        <Route path="/librarian/manage-loans" element={<LibrarianDashboard />} />
+        <Route path="/librarian/manage-loans" element={<LibrarianManageLoans />} />
         <Route path="/librarian/teachers-reading-suggestions" element={<LibrarianTeachersReadingSuggestions />} />
-        <Route path="/librarian/manage-reading-suggestions" element={<LibrarianDashboard />} />
+        <Route path="/librarian/manage-reading-suggestions" element={<LibrarianManageSuggestions />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
