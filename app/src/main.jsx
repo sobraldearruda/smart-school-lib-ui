@@ -21,6 +21,7 @@ import TeacherUserTeachersReadingSuggestions from "./pages/teacher/teachers-read
 import StudentMyLoans from "./pages/student/my-loans";
 import TeacherMyLoans from "./pages/teacher/my-loans";
 import LibrarianMyLoans from "./pages/librarian/my-loans";
+import TeacherMyReadingSuggestions from "./pages/teacher/my-reading-suggestions";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -41,7 +42,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/teacher/search-authors" element={<TeacherSearchAuthors />} />
         <Route path="/teacher/my-loans" element={<TeacherMyLoans />} />
         <Route path="/teacher/teachers-reading-suggestions" element={<TeacherUserTeachersReadingSuggestions />} />
-        <Route path="/teacher/my-reading-suggestions" element={<TeacherDashboard />} />
+        <Route path="/teacher/my-reading-suggestions" element={<TeacherMyReadingSuggestions />} />
 
         <Route path="/librarian/dashboard" element={<LibrarianDashboard />} />
         <Route path="/librarian/search-books" element={<LibrarianSearchBooks />} />
