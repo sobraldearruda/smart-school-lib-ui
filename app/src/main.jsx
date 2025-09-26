@@ -15,6 +15,9 @@ import TeacherSearchBooks from "./pages/teacher/search-books";
 import LibrarianSearchAuthors from "./pages/librarian/search-authors";
 import StudentSearchAuthors from "./pages/student/search-authors";
 import TeacherSearchAuthors from "./pages/teacher/search-authors";
+import LibrarianTeachersReadingSuggestions from "./pages/librarian/teachers-reading-suggestions";
+import StudentTeachersReadingSuggestions from "./pages/student/teachers-reading-suggestions";
+import TeacherUserTeachersReadingSuggestions from "./pages/teacher/teachers-reading-suggestions";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -28,13 +31,13 @@ createRoot(document.getElementById("root")).render(
         <Route path="/student/search-books" element={<StudentSearchBooks />} />
         <Route path="/student/search-authors" element={<StudentSearchAuthors />} />
         <Route path="/student/my-loans" element={<StudentDashboard />} />
-        <Route path="/student/teachers-reading-suggestions" element={<StudentDashboard />} />
+        <Route path="/student/teachers-reading-suggestions" element={<StudentTeachersReadingSuggestions />} />
 
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
         <Route path="/teacher/search-books" element={<TeacherSearchBooks />} />
         <Route path="/teacher/search-authors" element={<TeacherSearchAuthors />} />
         <Route path="/teacher/my-loans" element={<TeacherDashboard />} />
-        <Route path="/teacher/teachers-reading-suggestions" element={<TeacherDashboard />} />
+        <Route path="/teacher/teachers-reading-suggestions" element={<TeacherUserTeachersReadingSuggestions />} />
         <Route path="/teacher/my-reading-suggestions" element={<TeacherDashboard />} />
 
         <Route path="/librarian/dashboard" element={<LibrarianDashboard />} />
@@ -44,7 +47,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/librarian/manage-authors" element={<LibrarianDashboard />} />
         <Route path="/librarian/my-loans" element={<LibrarianDashboard />} />
         <Route path="/librarian/manage-loans" element={<LibrarianDashboard />} />
-        <Route path="/librarian/teachers-reading-suggestions" element={<LibrarianDashboard />} />
+        <Route path="/librarian/teachers-reading-suggestions" element={<LibrarianTeachersReadingSuggestions />} />
         <Route path="/librarian/manage-reading-suggestions" element={<LibrarianDashboard />} />
       </Routes>
     </BrowserRouter>
